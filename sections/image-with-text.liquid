@@ -9,8 +9,8 @@
     }
 }
 {% endstyle %}
-<div class="div-{{section.id}} bg-container">
-    <div class="md:flex{% unless section.settings.image_first %} flex-row-reverse{% endunless %} div-{{section.id}}-grid">
+<div class="div-{{section.id}}">
+    <div class="md:flex{% unless section.settings.image_first %} flex-row-reverse{% endunless %} div-{{section.id}}-grid bg-container">
         <div class="iwt-img md:w-1/2 w-full md:mb-0 mb-4">
             <div class="md:w-9/12 w-full md:mx-auto">
                 {%- assign logo_alt = section.settings.image.alt | default: shop.name | escape -%}
