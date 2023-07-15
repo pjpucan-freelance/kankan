@@ -23,11 +23,40 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/Masthead.jpg",
         "url": "",
-        "show_button": true
+        "show_button": true,
+        "btn_text": "Shop now"
+      }
+    },
+    "cd0753e6-60ac-4b2c-b235-f8d6b97f92b3": {
+      "type": "image-with-text",
+      "blocks": {
+        "9141c847-964f-483d-b723-aa799dc679f6": {
+          "type": "heading",
+          "settings": {
+            "title": "Send it #plasticfree"
+          }
+        },
+        "170b095f-294d-414d-a6cb-97f0d8cd8c12": {
+          "type": "text",
+          "settings": {
+            "text": "<p>KANKAN is proud to partner with  Flexi-hex, a Cornish company equally motivated to make a big impact on removing single-use plastic from the oceans. Made from recycled paper, and water-based adhesive - this lightweight showstopper of packaging means it is totally biodegradable and home compostable. <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "9141c847-964f-483d-b723-aa799dc679f6",
+        "170b095f-294d-414d-a6cb-97f0d8cd8c12"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Foreground.jpg",
+        "image_first": false,
+        "vertical_spacing": 50,
+        "horizontal_spacing": 50
       }
     }
   },
   "order": [
-    "244a9a10-d59a-4d3e-a041-e3baec8b467a"
+    "244a9a10-d59a-4d3e-a041-e3baec8b467a",
+    "cd0753e6-60ac-4b2c-b235-f8d6b97f92b3"
   ]
 }
