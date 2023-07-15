@@ -4,14 +4,30 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "blocks": {
+        "08bfce7b-5f95-4654-98b1-72767b2bf235": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Stacked_logo.png",
+            "image_width": 100
+          }
+        },
+        "42f47ba0-1598-46dd-baab-655c269fa093": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Quick links",
+            "menu": "footer"
+          }
+        }
+      },
+      "block_order": [
+        "08bfce7b-5f95-4654-98b1-72767b2bf235",
+        "42f47ba0-1598-46dd-baab-655c269fa093"
+      ],
       "settings": {
-        "color_scheme": "background-1",
+        "bg_color": "#181800",
         "newsletter_enable": true,
         "newsletter_heading": "Subscribe to our emails",
-        "enable_follow_on_shop": true,
-        "show_social": true,
-        "enable_country_selector": true,
-        "enable_language_selector": true,
         "payment_enable": true,
         "show_policy": false,
         "margin_top": 36,
