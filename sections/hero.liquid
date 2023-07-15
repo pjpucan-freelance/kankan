@@ -1,5 +1,42 @@
 <div class="div-{{ section.id }}">
-
+    <div class="relative">
+        <div class="block">
+            {%- assign logo_alt = section.settings.image.alt | default: shop.name | escape -%}
+            {%- assign logo_height = section.settings.image_width | divided_by: section.settings.image.aspect_ratio -%}
+            {% capture sizes %}100vw{% endcapture %}
+            {% assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' %}
+            {{ section.settings.image | image_url: width: 600 | image_tag:
+                class: 'w-full h-auto',
+                widths: widths,
+                height: logo_height,
+                width: section.settings.image_width,
+                alt: logo_alt,
+                sizes: sizes,
+                preload: true
+            }}
+        </div>
+        <div class="absolute top-0 left-0 w-full h-full flex justify-start items-center text-white">
+            <div class="section-overlay md:px-16 px-5">
+                {% for block in section.blocks %}
+                    {% case block.type %}
+                        {% when 'heading' %}
+                            <div class="section_heading mb-4" {{ block.shopify_attributes}}>
+                                <h2 class="md:text-[50px] text-[36px]">{{ block.settings.title }}</h2>
+                            </div>
+                        {% when 'text' %}
+                            <div class="section_subheading mb-8" {{ block.shopify_attributes}}>
+                                <div class="rte md:text-[24px] text-base">{{ block.settings.text }}</div>
+                            </div>
+                    {% endcase %}
+                {% endfor %}
+                {% if section.settings.show_button %}
+                    <div class="section_cta">
+                        <a href="{% if section.settings.url != blank %}{{ section.settings.url }}{% else%}#{% endif %}" class="btn btn-primary">{{ section.settings.btn_text }}</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 </div>
 {% schema %}
 {
@@ -21,12 +58,19 @@
             "id": "show_button",
             "label": "Show button",
             "default": true
+        },
+        {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button text",
+            "default": "Shop now"
         }
     ],
     "blocks": [
         {
             "type": "heading",
             "name": "Heading",
+            "limit": 1,
             "settings": [
                 {
                     "type": "text",
@@ -39,6 +83,7 @@
         {
             "type": "text",
             "name": "Text",
+            "limit": 1,
             "settings": [
                 {
                     "type": "richtext",

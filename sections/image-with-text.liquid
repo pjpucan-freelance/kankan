@@ -1,0 +1,127 @@
+<div class="div-{{section.id}}">
+    <div class="md:flex">
+        <div class="iwt-img">
+            {%- assign logo_alt = section.settings.image.alt | default: shop.name | escape -%}
+            {%- assign logo_height = section.settings.image_width | divided_by: section.settings.image.aspect_ratio -%}
+            {% capture sizes %}(min-width: {{ settings.page_width }}px) calc(({{ settings.page_width }} / 2) - ({{ section.settings.vertical_spacing}} * 2) - ({{ section.settings.horizontal_spacing}} * 2)), 100vw{% endcapture %}
+            {% assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' %}
+            {{ section.settings.image | image_url: width: 600 | image_tag:
+                class: 'w-full h-auto',
+                widths: widths,
+                height: logo_height,
+                width: section.settings.image_width,
+                alt: logo_alt,
+                sizes: sizes,
+                loading: 'lazy'
+            }}
+        </div>
+        <div class="iwt-txt">
+            <div class="iwt-text-inner">
+                {% for block in section.blocks %}
+                    {% case block.type %}
+                        {% when 'heading' %}
+                            <div class="section_heading mb-4" {{ block.shopify_attributes}}>
+                                <h2 class="md:text-[36] text-[18px]">{{ block.settings.title }}</h2>
+                            </div>
+                        {% when 'text' %}
+                            <div class="section_subheading mb-8" {{ block.shopify_attributes}}>
+                                <div class="rte md:text-[20px] text-base">{{ block.settings.text }}</div>
+                            </div>
+                        {% when 'button' %}
+                            <div class="section_cta">
+                                <a href="{% if block.settings.url != blank %}{{ block.settings.url }}{% else%}#{% endif %}" class="btn btn-primary">{{ block.settings.title }}</a>
+                            </div>
+                    {% endcase %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+    "name": "Image with text",
+    "class": "page_width",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "checkbox",
+            "id": "image_first",
+            "label": "Image first"
+        },
+        {
+            "type": "header",
+            "content": "Image spacing"
+        },
+        {
+            "type": "range",
+            "id": "vertical_spacing",
+            "label": "Vertical Spacing",
+            "min": 1,
+            "max": 100,
+            "step": 1,
+            "default": 50,
+            "unit": "px"
+        },
+        {
+            "type": "range",
+            "id": "horizontal_spacing",
+            "label": "Horizontal Spacing",
+            "min": 1,
+            "max": 100,
+            "step": 1,
+            "default": 50,
+            "unit": "px"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "heading",
+            "name": "Heading",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Send it #plasticfree"
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "name": "Text",
+            "settings": [
+                {
+                    "type": "richtext",
+                    "id": "text",
+                    "label": "Text"
+                }
+            ]
+        },
+        {
+            "type": "button",
+            "name": "Button",
+            "settings": [
+                {
+                    "type": "url",
+                    "id": "url",
+                    "label": "URL"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Image with text"
+        }
+    ]
+}
+{% endschema %}
