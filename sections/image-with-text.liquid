@@ -41,7 +41,7 @@
                                 <div class="rte md:text-[20px] text-base">{{ block.settings.text }}</div>
                             </div>
                         {% when 'button' %}
-                            <div class="section_cta mb-4">
+                            <div class="section_cta pb-4">
                                 <a href="{% if block.settings.url != blank %}{{ block.settings.url }}{% else%}#{% endif %}" class="btn btn-primary">{{ block.settings.title }}</a>
                             </div>
                     {% endcase %}
