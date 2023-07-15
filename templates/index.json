@@ -41,11 +41,19 @@
           "settings": {
             "text": "<p>KANKAN is proud to partner with  Flexi-hex, a Cornish company equally motivated to make a big impact on removing single-use plastic from the oceans. Made from recycled paper, and water-based adhesive - this lightweight showstopper of packaging means it is totally biodegradable and home compostable. <\/p>"
           }
+        },
+        "4b66fdbc-12e7-4074-bfba-3e200fc55b2f": {
+          "type": "button",
+          "settings": {
+            "url": "#",
+            "title": "Shop now"
+          }
         }
       },
       "block_order": [
         "9141c847-964f-483d-b723-aa799dc679f6",
-        "170b095f-294d-414d-a6cb-97f0d8cd8c12"
+        "170b095f-294d-414d-a6cb-97f0d8cd8c12",
+        "4b66fdbc-12e7-4074-bfba-3e200fc55b2f"
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/Foreground.jpg",
