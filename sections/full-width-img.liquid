@@ -1,0 +1,35 @@
+<div class="div-{{section.id}}">
+    <div class="block w-full">
+        {%- assign logo_alt = section.settings.image.alt | default: shop.name | escape -%}
+        {%- assign logo_height = section.settings.image_width | divided_by: section.settings.image.aspect_ratio -%}
+        {% capture sizes %}(min-width: {{ settings.page_width }}px) calc(100vw - (100vw - ({{ settings.page_width }}))), 100vw{% endcapture %}
+        {% assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' %}
+        {{ section.settings.image | image_url: width: 600 | image_tag:
+            class: 'w-full h-auto',
+            widths: widths,
+            height: logo_height,
+            width: section.settings.image_width,
+            alt: logo_alt,
+            sizes: sizes,
+            loading: 'lazy'
+        }}
+    </div>
+</div>
+{% schema %}
+{
+    "name": "Static image",
+    "class": "page-width",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Static image"
+        }
+    ]
+}
+{% endschema %}

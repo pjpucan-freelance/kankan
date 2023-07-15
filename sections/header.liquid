@@ -1,5 +1,36 @@
-<header class="header grid md:grid-cols-[1fr_auto_1fr] md:mx-12 py-12 mx-5">
-  <nav class="header__inline-menu" role="menu">
+<header class="header grid grid-cols-[1fr_auto_1fr] md:mx-12 py-12 mx-5">
+  <div class="md:hidden block">
+      <button type="button" class="menu-btn flex justify-center items-center h-full js-menu-btn">
+        <div class="w-5 h-5">
+          {% render 'icon-hamburger' %}
+        </div>
+      </button>
+      <div class="mobile-menu">
+        <nav id="mobile-navigation" role="menu">
+          <div class="drawer-close bg-slate-300 text-right">
+            <button type="button" class="p-4 menu-btn js-menu-btn">
+              <div class="w-5 h-5">
+                {% render 'icon-close' %}
+              </div>
+            </button>
+          </div>
+          <ul class="flex flex-col" role="list">
+            {%- for link in section.settings.menu.links -%}
+            <li class="text-left hover:bg-neutral-200">
+              <a
+                id="HeaderMenu-{{ link.handle }}"
+                href="{{ link.url }}"
+                class="text-lg py-3 px-8 block"
+              >
+                <span class="menu-label">{{ link.title | escape }}</span>
+              </a>
+            </li>
+            {%- endfor -%}
+          </ul>
+        </nav>
+      </div>
+  </div>
+  <nav class="header__inline-menu md:block hidden" role="menu">
     <ul class="inline-flex nowrap" role="list">
       {%- for link in section.settings.menu.links -%}
       <li>
@@ -46,11 +77,11 @@
       <div class="w-5 h-5 mr-2">
         {% render 'icon-basket' %}
       </div>
-      <span class="icon-label">Basket</div>
+      <span class="icon-label md:block hidden">Basket</div>
     </a>
   </div>
 </header>
-
+<script src="{{ 'z__MobileNavigation.js' | asset_url }}" defer></script>
 <script type="application/ld+json">
   {
     "@context": "http://schema.org",

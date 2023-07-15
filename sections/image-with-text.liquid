@@ -1,6 +1,7 @@
 {% style %}
 .div-{{section.id}} {
     --background-color: {{ section.settings.bg_color }};
+    padding: 30px 0;
 }
 @media (min-width: 769px) {
     .div-{{section.id}}-grid {
@@ -9,7 +10,7 @@
 }
 {% endstyle %}
 <div class="div-{{section.id}} bg-container">
-    <div class="md:flex flex-row-reverse div-{{section.id}}-grid">
+    <div class="md:flex{% unless section.settings.image_first %} flex-row-reverse{% endunless %} div-{{section.id}}-grid">
         <div class="iwt-img md:w-1/2 w-full md:mb-0 mb-4">
             <div class="md:w-9/12 w-full md:mx-auto">
                 {%- assign logo_alt = section.settings.image.alt | default: shop.name | escape -%}
@@ -28,7 +29,7 @@
             </div>
         </div>
         <div class="iwt-txt md:w-1/2 w-full md:flex md:justify-center md:items-center">
-            <div class="iwt-text-inner">
+            <div class="iwt-text-inner md:p-0 px-4">
                 {% for block in section.blocks %}
                     {% case block.type %}
                         {% when 'heading' %}
@@ -99,6 +100,7 @@
         {
             "type": "heading",
             "name": "Heading",
+            "limit": 1,
             "settings": [
                 {
                     "type": "text",
@@ -111,6 +113,7 @@
         {
             "type": "text",
             "name": "Text",
+            "limit": 1,
             "settings": [
                 {
                     "type": "richtext",
@@ -122,6 +125,7 @@
         {
             "type": "button",
             "name": "Button",
+            "limit": 1,
             "settings": [
                 {
                     "type": "url",

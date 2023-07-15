@@ -5,7 +5,7 @@
 }
 {% endstyle %}
 <footer class="bg-container footer div-{{section.id}}">
-  <div class="flex">
+  <div class="flex w-full py-16 px-12 md:mx-12 mx-5 gap-7">
   {% for block in section.blocks %}
     <div id="block-{{block.id}}" {{ block.shopify_attributes }}>
     {% case block.type %}
@@ -29,10 +29,10 @@
         {%- if block.settings.menu != blank -%}
           <ul class="footer-block__details-content list-unstyled" role="list">
             {% if block.settings.heading != blank %}
-              <li class="link__heading">{{ block.settings.heading }}</li>
+              <li class="link__heading text-lg">{{ block.settings.heading }}</li>
             {% endif %}
             {%- for link in block.settings.menu.links -%}
-              <li>
+              <li class="text-base">
                 <a
                   href="{{ link.url }}"
                   class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
