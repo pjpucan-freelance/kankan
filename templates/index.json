@@ -1,7 +1,33 @@
 {
   "sections": {
+    "244a9a10-d59a-4d3e-a041-e3baec8b467a": {
+      "type": "hero",
+      "blocks": {
+        "0cb6d49d-b84c-4443-9b70-e5893552ee86": {
+          "type": "heading",
+          "settings": {
+            "title": "A gift for mum at Christmas"
+          }
+        },
+        "61044816-1d08-492d-a33f-ee2911e77445": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Luxurious soaps in a can. Give the worls’s first plastic-free refill to your very best.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "0cb6d49d-b84c-4443-9b70-e5893552ee86",
+        "61044816-1d08-492d-a33f-ee2911e77445"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Masthead.jpg",
+        "url": "",
+        "show_button": true
+      }
+    }
   },
   "order": [
-
+    "244a9a10-d59a-4d3e-a041-e3baec8b467a"
   ]
 }
