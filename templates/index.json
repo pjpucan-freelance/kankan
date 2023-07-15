@@ -58,13 +58,14 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/Foreground.jpg",
         "image_first": false,
-        "bg_color": "#FFF6E2",
+        "bg_color": "#fff6e2",
         "vertical_spacing": 50,
         "horizontal_spacing": 100
       }
     },
     "1ac2b40e-15a5-47c8-9c63-a6b39e179b48": {
       "type": "full-width-img",
+      "disabled": true,
       "settings": {
         "image": "shopify:\/\/shop_images\/Screen_Shot_2020-11-17_at_11.38.11_am.jpg"
       }
@@ -100,7 +101,7 @@
       "settings": {
         "image": "shopify:\/\/shop_images\/Foreground.jpg",
         "image_first": true,
-        "bg_color": "#FFF6E2",
+        "bg_color": "#fff6e2",
         "vertical_spacing": 50,
         "horizontal_spacing": 100
       }
